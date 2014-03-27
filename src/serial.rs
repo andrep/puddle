@@ -23,7 +23,7 @@ fn is_transmit_empty() -> bool {
 }
 
 fn write_byte(b: u8) {
-    while (!is_transmit_empty()) {}
+    while !is_transmit_empty() {}
     unsafe {
         outb(PORT, b);
     }

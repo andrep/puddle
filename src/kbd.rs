@@ -42,10 +42,10 @@ pub fn change_state(scancode: u8) {
 }
 
 pub fn get_char(scancode: u8) -> Option<u8> {
-    if (scancode >= SCAN_CODE_MAPPING.len() as u8
+    if scancode >= SCAN_CODE_MAPPING.len() as u8
         || SCAN_CODE_MAPPING[scancode] == ('?' as u8)
         || scancode < 2
-        || scancode > 63) {
+        || scancode > 63 {
         return None;
     } 
     unsafe {

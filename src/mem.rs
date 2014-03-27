@@ -10,7 +10,7 @@ pub extern "C" fn malloc(len: uint) -> *mut u8 {
         base += len + size_of::<uint>();
 
         // Align next allocation to 4-byte boundary.
-        if(base % 4 != 0) {
+        if base % 4 != 0 {
             base += 4 - (base % 4);
         }
 

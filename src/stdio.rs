@@ -53,7 +53,7 @@ pub fn clear_screen() {
 
 pub fn backspace() {
     unsafe {
-        if (curr_x == 0) {
+        if curr_x == 0 {
             curr_y -= 1;
             curr_x = VGA_WIDTH - 1;
         } else {
@@ -67,7 +67,7 @@ pub fn putc(c: u8) {
     unsafe {
         putchar(curr_x, curr_y, c);
         curr_x += 1;
-        if (curr_x > VGA_WIDTH) {
+        if curr_x > VGA_WIDTH {
             curr_x -= VGA_WIDTH;
             curr_y += 1;
         }
@@ -94,7 +94,7 @@ pub fn print_num(x: uint) {
     putc(' ' as u8);
 }
 pub fn putchar(x: u16, y: u16, c: u8) {
-    if (x >= VGA_WIDTH || y >= VGA_HEIGHT) {
+    if x >= VGA_WIDTH || y >= VGA_HEIGHT {
         return;
     }
     let idx : uint =  (y * VGA_WIDTH * 2 + x * 2) as uint;
