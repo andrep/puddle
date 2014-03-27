@@ -1,5 +1,6 @@
 CC=gcc
 LD ?= ld
+OBJCOPY ?= objcopy
 RUSTC := rustc --cfg libc -Z no-landing-pads -O --target i386-intel-linux
 NASM=nasm
 QEMU=qemu-system-i386
@@ -40,7 +41,7 @@ $(BUILDDIR)/main.elf: src/linker.ld $(OBJS)
 
 $(BUILDDIR)/main.bin: $(BUILDDIR)/main.elf
 	mkdir -p $(BUILDDIR)
-	objcopy -O binary $< $@
+	$(OBJCOPY) -O binary $< $@
 
 $(BUILDDIR)/floppy.img: $(BUILDDIR)/loader.bin $(BUILDDIR)/main.bin
 	cat $^ > $@
