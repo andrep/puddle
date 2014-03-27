@@ -22,10 +22,10 @@ pub extern "C" fn malloc(len: uint) -> *mut u8 {
 
 // Even more naive free().
 #[no_mangle]
-pub extern "C" fn free(ptr: *mut u8) {}
+pub extern "C" fn free(_ptr: *mut u8) {}
 
 #[no_mangle]
-pub extern "C" fn realloc(ptr: *mut u8, len: uint) {}
+pub extern "C" fn realloc(_ptr: *mut u8, _len: uint) {}
 
 #[no_mangle]
 pub extern "C" fn calloc(len: uint) -> *mut u8 {
