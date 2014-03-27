@@ -22,12 +22,12 @@ $(OBJDIR)/%.asm.o: src/%.asm
 	mkdir -p $(OBJDIR)
 	$(NASM) -f elf -o $@ $<
 
-$(OBJDIR)/main.bc: src/main.rs
+$(OBJDIR)/%.bc: src/%.rs
 	mkdir -p $(OBJDIR)
 	$(RUSTC) src/rust-core/core/lib.rs --out-dir $(BUILDDIR)
 	$(RUSTC) --lib --emit-llvm -L $(BUILDDIR) -o $@ $<
 
-$(OBJDIR)/main.o: $(OBJDIR)/main.bc
+$(OBJDIR)/%.o: $(OBJDIR)/%.bc
 	clang -c -O2 -o $@ $<
 
 
