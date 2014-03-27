@@ -25,7 +25,7 @@ $(OBJDIR)/%.asm.o: src/%.asm
 $(OBJDIR)/%.bc: src/%.rs
 	mkdir -p $(OBJDIR)
 	$(RUSTC) src/rust-core/core/lib.rs --out-dir $(BUILDDIR)
-	$(RUSTC) --lib --emit-llvm -L $(BUILDDIR) -o $@ $<
+	$(RUSTC) --emit bc -L $(BUILDDIR) -o $@ $<
 
 $(OBJDIR)/%.o: $(OBJDIR)/%.bc
 	clang -c -O2 -o $@ $<
