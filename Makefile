@@ -20,7 +20,7 @@ all: $(BUILDDIR)/floppy.img
 
 $(OBJDIR)/%.asm.o: src/%.asm
 	mkdir -p $(OBJDIR)
-	$(NASM) -f elf32 -o $@ $<
+	$(NASM) -f elf -o $@ $<
 
 $(OBJDIR)/main.bc: src/main.rs
 	mkdir -p $(OBJDIR)
