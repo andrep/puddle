@@ -37,7 +37,7 @@ $(BUILDDIR)/loader.bin: src/loader.asm
 
 $(BUILDDIR)/main.elf: src/linker.ld $(OBJS) 
 	mkdir -p $(BUILDDIR)
-	$(LD) -Map=$(BUILDDIR)/linker.map -o $@ -T $^ "-(" build/libcore-2e829c2f-0.0.rlib "-)"
+	$(LD) -Map=$(BUILDDIR)/linker.map -o $@ -T $^ "-(" build/libcore-caef0f5f-0.0.rlib "-)"
 
 $(BUILDDIR)/main.bin: $(BUILDDIR)/main.elf
 	mkdir -p $(BUILDDIR)
