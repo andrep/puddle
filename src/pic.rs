@@ -11,7 +11,7 @@ static ICW1_ICW4	:u8 = 0x01;		/* ICW4 (not) needed */
 static ICW1_INIT	:u8 = 0x10;		/* Initialization - required! */
 
 static ICW4_8086	:u8 = 0x01;		/* 8086/88 (MCS-80/85) mode */
-static ICW4_SFNM	:u8 = 0x10;		/* Special fully nested (not) */
+// static ICW4_SFNM	:u8 = 0x10;		/* Special fully nested (not) */
 
 static REMAP_BASE       :u8 = 0x20;
 
